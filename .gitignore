@@ -1,0 +1,53 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+
+# Virtual Environment
+backend/venv/
+
+# Environment Variables
+backend/.env
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# =========================
+# FastAPI / Logs
+# =========================
+*.log
+
+# =========================
+# VS Code
+# =========================
+.vscode/
+
+# =========================
+# Node / React
+# =========================
+frontend/node_modules/
+
+# Build folders
+frontend/dist/
+frontend/build/
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Dataset cache
+# =========================
+datasets/cache/
+
+# =========================
+# FAISS indexes (optional)
+# =========================
+*.faiss
+*.index
