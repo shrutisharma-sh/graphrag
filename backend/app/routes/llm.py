@@ -1,17 +1,28 @@
 from fastapi import APIRouter
-from app.services.gemini_service import ask_gemini
+
+from app.services.gemini_service import ask_llm
+from app.models.llm_models import (
+    PromptRequest,
+    BenchmarkResponse
+)
 
 router = APIRouter()
 
 
-@router.get("/test-llm")
-def test_llm():
+@router.post(
+    "/benchmark/llm",
+    response_model=BenchmarkResponse
+)
+def benchmark_llm(request: PromptRequest):
 
-    prompt = "Explain GraphRAG in simple words."
-
-    response = ask_gemini(prompt)
+    result = ask_llm(request.prompt)
 
     return {
-        "prompt": prompt,
-        "response": response
+        "model": result["model"],
+        "prompt": request.prompt,
+        "response": result["response"],
+        "latency_seconds": result["latency_seconds"],
+        "input_tokens_estimate": result["input_tokens_estimate"],
+        "output_tokens_estimate": result["output_tokens_estimate"],
+        "estimated_cost_usd": result["estimated_cost_usd"]
     }

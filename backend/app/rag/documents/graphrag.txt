@@ -1,0 +1,9 @@
+GraphRAG is a retrieval framework that combines knowledge graphs with large language models.
+
+Traditional RAG uses vector similarity search to retrieve relevant text chunks.
+
+GraphRAG improves retrieval by using relationships between entities stored in a graph database.
+
+TigerGraph GraphRAG helps large language models reason over connected data and multi-hop relationships.
+
+GraphRAG is useful for enterprise knowledge systems, research assistants, and complex reasoning tasks.
