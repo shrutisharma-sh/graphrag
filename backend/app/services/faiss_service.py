@@ -70,29 +70,26 @@ def search_similar_chunks(query: str, top_k=2):
 
     global document_chunks
 
-    if not os.path.exists(INDEX_PATH):
+    
+    text = load_document()
+    document_chunks = chunk_text(text)
 
+    
+    if not os.path.exists(INDEX_PATH):
         create_faiss_index()
 
-    
     index = faiss.read_index(INDEX_PATH)
 
-    
     query_embedding = generate_embedding(query)
+    query_embedding = np.array([query_embedding]).astype("float32")
 
-    query_embedding = np.array(
-        [query_embedding]
-    ).astype("float32")
-
-    distances, indices = index.search(
-        query_embedding,
-        top_k
-    )
+    
+    distances, indices = index.search(query_embedding, top_k)
 
     results = []
 
     for idx in indices[0]:
-
-        results.append(document_chunks[idx])
+        if idx < len(document_chunks):  # safety check
+            results.append(document_chunks[idx])
 
     return results
