@@ -1,0 +1,17 @@
+GraphRAG combines graph databases with retrieval augmented generation.
+
+TigerGraph is a graph database platform designed for connected data.
+
+Graph databases store entities and relationships.
+
+GraphRAG improves retrieval using connected relationships between entities.
+
+FAISS is used for vector similarity search.
+
+Embeddings convert text into numerical vectors.
+
+Sentence Transformers generate semantic embeddings.
+
+Knowledge graphs improve reasoning for LLM systems.
+
+GraphRAG is useful for enterprise AI systems and research assistants.
